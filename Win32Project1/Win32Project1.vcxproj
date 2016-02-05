@@ -19,7 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="entity_manager.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="component.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="entity_manager.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{807F69A8-4BBB-4FC7-A09C-A43DB279649F}</ProjectGuid>
