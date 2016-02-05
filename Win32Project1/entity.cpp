@@ -1,5 +1,4 @@
 #include "entity.h"
-#include "component.h"
 
 void Entity::update(float dt)
 {

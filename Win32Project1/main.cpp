@@ -1,9 +1,36 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "component.h"
+#include "entity.h"
 #include "entity_manager.h"
 
 
+struct CounterComponent : Component
+{
+	float counter;
+	void update(float dt)  override
+	{
+		counter += dt;
+		std::cout << counter << std::endl;
+	}
+};
 
+
+struct KillComponent : Component
+{
+	CounterComponent* counter{ nullptr };
+
+	void init() override
+	{
+		counter = &entity->getComponent<CounterComponent>();
+	}
+
+	void update(float dt) override
+	{
+		if (counter->counter >= 100)
+			entity->destroy();
+	}
+};
 
 
 int main()
@@ -12,8 +39,8 @@ int main()
 
 	auto& entity(manager.addEntity());
 
-	//entity.addComponent<CounterComponent>();
-	//entity.addComponent<KillComponent>();
+	entity.addComponent<CounterComponent>();
+	entity.addComponent<KillComponent>();
 	
 	for (auto i(0u); i < 1000; i++)
 	{
