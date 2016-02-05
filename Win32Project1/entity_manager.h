@@ -5,21 +5,26 @@
 #include <iostream>
 #include "entity.h"
 
-class EntityManager
+namespace ECS
 {
-public:
-	EntityManager();
-	~EntityManager();
+	class EntityManager
+	{
+	public:
+		EntityManager();
+		~EntityManager();
 
-	void update(float dt);
-	void draw();
-	void refresh();
+		void update(float dt);
+		void draw();
+		void refresh();
 
-	Entity& addEntity();
+		Entity& addEntity();
 
-private:
-	std::vector<std::unique_ptr<Entity>> entities;
-};
+	private:
+		std::vector<std::unique_ptr<Entity>> entities;
+	};
+
+}
+
 
 
 
